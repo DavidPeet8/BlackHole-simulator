@@ -1,6 +1,7 @@
 import { BlackHole } from "./blackhole.js";
 
 // body.js
+// in the future probably should have used inheritance here Body extends Black Hole
 
 class Body{
     static mass = 2;
