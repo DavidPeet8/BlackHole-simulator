@@ -42,7 +42,6 @@ function updateGame(){
 }
 
 window.onload = ()=>{
-    console.log('FUCK');
     blackHoles.push(new BlackHole(canvas.offsetWidth/2, canvas.offsetHeight/2, 50));
     document.addEventListener('mousedown', (event)=>{
         console.log(event.pageX + ' ' + event.pageY);
