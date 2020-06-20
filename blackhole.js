@@ -1,18 +1,22 @@
 // blackhole.js
 
-class BlackHole{
+class BlackHole 
+{
     static mass = document.getElementById('BHMass').value;
-    constructor(x, y, r){
+    constructor(x, y, r) 
+    {
         this.x = x; 
         this.y = y;
         this.r = r;
     }
 
-    print(){
+    print() 
+    {
         console.log("x: %d, y: %d, r: %d, mass: %d", this.x, this.y, this.r, BlackHole.mass);
     }
 
-    draw(context){
+    draw(context) 
+    {
         context.fillStyle = "#000000";
         context.beginPath();
         context.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
@@ -20,4 +24,4 @@ class BlackHole{
     }
 }
 
-export{BlackHole};
+export { BlackHole };

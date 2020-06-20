@@ -1,33 +1,82 @@
 * {
     box-sizing: border-box;
-} 
-body{
+    padding: 0;
+    margin: 0;
+}
+
+body {
     background: #ffffff;
     font-family: "Muli";
 }
 
-#simArea{
+#simArea {
     text-align: center;
     width: 100%;
     background: #a5baff;
     font-size: 32pt;
     padding: 10px;
 
-    #orbit{
+    .header {
+        font-family: 'Montserrat';
+        padding: 20px;
+        .link {
+            color: black;
+        }
+        
+        #helpbtn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        #githubbtn {
+            position: absolute;
+            top: 10px;
+            right: 80px;
+        }
+
+        #inbtn {
+            position: absolute;
+            top: 10px;
+            right: 140px;
+        }
+
+        #websitebtn {
+            position: absolute;
+            top: 10px;
+            right: 200px;
+        }
+    }
+
+    #orbit {
         background: 'white';
         width: 80%;
         height: 75%;
     }
 }
 
-.sliders{
+.sliders {
     width: 100%;
     background: #ffaacf;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    .slider{
+    .slider-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         width: 80%;
-        height: 5px;
-    }
+        padding: 20px;
+
+        .slider {
+            width: 80%;
+            height: 5px;
+        }
+    }    
 }
+
