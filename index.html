@@ -28,17 +28,28 @@
     <script type="module" src="./body.js"></script>
 </head>
 
-<body>
+<body class="fullwidth fullheight">
     <section id="simArea">
         <div class="header">
             <h1>Gravitation Simulation</h1>
             <a id='inbtn' href="https://www.linkedin.com/in/dapeet/"><i class="fab fa-linkedin link"></i></a>
             <a id='websitebtn' href="https://davidpeet8.github.io/website/#/"><i class="fas fa-link link"></i></a>
             <a id='githubbtn' href="https://github.com/DavidPeet8"><i class="fab fa-github link"></i></a>
-            <p id='helpbtn'><i class="far fa-question-circle"></i></p>
+            <a id='helpbtn' onclick="document.getElementById('modal').style.display='block'"><i class="far fa-question-circle"></i></a>
         </div>
         <canvas id="orbit"></canvas>
     </section>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="container">
+          <span onclick="document.getElementById('modal').style.display='none'"
+          class="button display-topright">&times;</span>
+          <h1>Instructions:</h1>
+          <p>This is a simulation of bodies in gravitational fields, to place a body left-click. To place a body with an initial velocity, click and drag in the opposite direction you wish for the body to go. To place another black hole middle click. To adjust the mass of the black holes and the gravitational strength, use the sliders provided below.</p>
+        </div>
+      </div>
+    </div>
 
     <div class="sliders">
         <div class="slider-container">

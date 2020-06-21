@@ -25,10 +25,12 @@ function checkCollisions()
 {
     blackHoles.forEach((bh) => {
         for(let i = 0; i < bodies.length; i++){
-            if(bodies[i].x - bodies[i].r < bh.x + bh.r && bodies[i].x + bodies[i].r > bh.x - bh.r){
-                if(bodies[i].y - bodies[i].r < bh.y + bh.r && bodies[i].y + bodies[i].r > bh.y - bh.r){
-                    bodies.splice(i,i);
-                }
+            // Use pythgorean theorem compared to sum of radii
+            const actDist = Math.sqrt(Math.pow(bodies[i].x - bh.x,2) + Math.pow(bodies[i].y - bh.y, 2))
+            const compDist = bodies[i].r + bh.r;
+            if (actDist <= compDist) 
+            {
+                bodies.splice(i,i);
             }
         }
     });
@@ -37,7 +39,7 @@ function checkCollisions()
 function updateGame() 
 {
     fixDPI();
-    context.fillStyle = "#ffffff";
+    context.fillStyle = "#B0B0B0";
     context.fillRect(0, 0, canvas.width, canvas.height);
     blackHoles.forEach((bh) => { bh.draw(context) });
     bodies.forEach((b) => { b.update(context, blackHoles, G) });
