@@ -24,13 +24,14 @@ function fixDPI()
 function checkCollisions() 
 {
     blackHoles.forEach((bh) => {
-        for(let i = 0; i < bodies.length; i++){
+        for(let i = 0; i < bodies.length; i++) 
+        {
             // Use pythgorean theorem compared to sum of radii
             const actDist = Math.sqrt(Math.pow(bodies[i].x - bh.x,2) + Math.pow(bodies[i].y - bh.y, 2))
             const compDist = bodies[i].r + bh.r;
-            if (actDist <= compDist) 
+            if (actDist <= compDist) // current trajectory intersects black hole
             {
-                bodies.splice(i,i);
+                bodies.splice(i,1);
             }
         }
     });
@@ -42,15 +43,13 @@ function updateGame()
     context.fillStyle = "#B0B0B0";
     context.fillRect(0, 0, canvas.width, canvas.height);
     blackHoles.forEach((bh) => { bh.draw(context) });
-    bodies.forEach((b) => { b.update(context, blackHoles, G) });
     checkCollisions();
+    bodies.forEach((b) => { b.update(context, blackHoles, G) });
+    bodies.forEach((b) => { b.draw(context) });
     requestAnimationFrame(updateGame);
 }
 
 window.onload = () => {
-    // Create initial black hole
-    blackHoles.push(new BlackHole(canvas.offsetWidth / 2, canvas.offsetHeight / 2, 50));
-
     // Register listeners for placing bodies and black holes
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mouseup', handleMouseUp);

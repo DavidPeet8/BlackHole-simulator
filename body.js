@@ -14,6 +14,7 @@ class Body
         this.dx = 0;
         this.dy = 0;
         this.grav = false; // Why is this even here?
+        this.color = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
     }
 
     update(context, blackHoles, G) 
@@ -33,12 +34,11 @@ class Body
 
         this.x += this.dx;
         this.y += this.dy;
-        this.draw(context);
     }
 
     draw(context) 
     {
-        context.fillStyle = "#ffde5b";
+        context.fillStyle = this.color;
         context.beginPath();
         context.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
         context.fill();
